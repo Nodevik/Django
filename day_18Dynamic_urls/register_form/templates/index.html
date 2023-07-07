@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <b>Dynamic urls</b>
+
+       <form action="" method="POST" novalidate>
+        {% csrf_token %}
+
+        {{ form.non_field.errors }}
+        {% for field in form %}
+
+            {{ field.label }} 
+            {{ field }} <span class="errorlist" >{{field.errors|striptags}}</span>  <br> <br>
+
+            {% for error in field.errors %}
+            <span class="errorlist" >{{error}}</span> 
+            {% endfor %}
+            
+        {% endfor %}
+
+        <button type="submit">submit</button>
+       </form>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
