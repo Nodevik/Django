@@ -1,0 +1,23 @@
+seesion<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get seesion</title>
+</head>
+<body>
+    Your seesion is here {{name}}
+
+            <hr>    
+
+    {{request.session.get_session_cookie_age}}
+            <hr>
+    {{request.session.get_expiry_age}}
+            <hr>
+    {{request.session.get_expiry_date}}
+            <hr>
+    {{request.session.get_expire_at_browser_close}}
+            <hr>
+
+</body>
+</html>
