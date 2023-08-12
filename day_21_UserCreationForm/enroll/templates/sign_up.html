@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>UserCreationForm</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for f in form %}
+            {{f.label_tag}}
+            {{f}}
+            {{f.errors|striptags}} <br> <br>
+        {% endfor %}
+        <button type="submit">SUbmit</button>
+    </form>
+
+    {% if messages %}
+        {% for msg in messages %}
+            <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{msg}}</small>
+        {% endfor %}
+    {% endif %}
+        
+    </body>
+</html>
