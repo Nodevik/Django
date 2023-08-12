@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin see user data</title>
+</head>
+<body>
+    <h1>Welcome Admin</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            {% for e in form.non_field_errors %}
+                {{e}}
+            {% endfor %}
+        {% endif %}
+
+        {% for f in form %}
+            {{f.label_tag}}
+            {{f}}
+            {{f.errors|striptags}} <br> <br>
+        {% endfor %}
+        <button type="submit">save</button>
+    </form>
+    <a href="{% url 'user_logout' %}">logout</a> </br> </br>
+    <a href="{% url 'user_profile' %}">pofile</a> 
+</body>
+</html>

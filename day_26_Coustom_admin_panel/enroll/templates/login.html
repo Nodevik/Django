@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                {% for e in form.non_field_errors %}
+                    {{e}}
+                {% endfor %}
+            {% endif %}
+
+            {% for f in form %}
+                {{f.label_tag}} {{f}} {{f.errors|striptags}}  <br> <br>
+            {% endfor %}
+
+            <button type="submit">Login</button>
+            <a href="{% url 'sign_up' %}">Create Account</a>
+        </form>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
