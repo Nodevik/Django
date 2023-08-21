@@ -1,0 +1,11 @@
+aggeregate function= sql aggregate function
+min
+max
+count
+sum
+avg    etc....
+
+
+
+q object :
+contain |{or} , &{and} operator 
